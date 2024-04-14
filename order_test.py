@@ -1,9 +1,7 @@
 # Лабазина Анна, 15-я когорта — Дипломный проект
 
-import configuration
-import requests
 import data
-
+from sender_stand_request import create_order_request, get_order_request
 
 # Автотест
 def test_order_creation_and_retrieval():
@@ -19,16 +17,3 @@ def test_order_creation_and_retrieval():
     order_data = order_response.json()
     print("Данные заказа:")
     print(order_data)
-
-
-# Создание заказа
-def create_order_request(body):
-    return requests.post(configuration.URL_SERVICE + configuration.CREAT_ORDERS,
-                         json=body)
-
-
-# Получение заказа по номеру трекера
-def get_order_request(track_number):
-    get_order_url = f"{configuration.URL_SERVICE}/api/v1/orders/track?t={track_number}"
-    response = requests.get(get_order_url)
-    return response

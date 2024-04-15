@@ -5,7 +5,7 @@ import requests
 
 # Создание заказа
 def create_order_request(body):
-    return requests.post(configuration.URL_SERVICE + configuration.CREAT_ORDERS,
+    return requests.post(configuration.URL_SERVICE + configuration.CREATE_ORDERS,
                          json=body)
 
 
